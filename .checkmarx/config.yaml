@@ -1,0 +1,16 @@
+version: 1
+
+checkmarx: 
+  scan:
+    #optional
+    tags:
+       "fromConfig": "true"
+
+    project:
+      tags: 
+        "fromConfig": "true"
+
+    configs:
+      sast:
+        presetName: 'Checkmarx Default'
+        incremental: 'true'

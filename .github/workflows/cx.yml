@@ -1,0 +1,22 @@
+name: cx
+on:
+  pull_request:
+    branches:
+      - master
+#  push:
+jobs:
+  ast_scan:
+    runs-on: ubuntu-latest
+    name: Checkmarx scan run
+    steps:
+      - name: Run scan
+        uses: CheckmarxDev/ast-github-action@more_engines
+        id: scan
+        with:
+          github_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          ast_uri: ${{ secrets.AST_URI }}
+          ast_access_key_id: ${{ secrets.AST_ACCESS_KEY_ID }}
+          ast_access_key_secret: ${{ secrets.AST_ACCESS_KEY_SECRET }}
+          action_scan_complete_timeout_secs: 600
+          high_results_threshold: 0
+          medium_results_threshold: 10
