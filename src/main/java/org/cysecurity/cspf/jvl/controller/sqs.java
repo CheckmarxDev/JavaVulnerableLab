@@ -22,7 +22,7 @@ class DoLogic{
 	List<Message> read(){
 		try{
 			AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
-			List<Message> messages = sqs.receiveMessage("aws_sqs_queue.q.id").getMessages();
+			List<Message> messages = sqs.receiveMessage("examplequeue").getMessages();
 			return messages;
 		} catch (Exception ex){
 			//
