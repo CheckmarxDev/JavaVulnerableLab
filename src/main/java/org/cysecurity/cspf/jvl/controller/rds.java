@@ -24,7 +24,8 @@ class Cl {
 			try{
 				Connection con = getRemoteConnection();
 				Statement stmt = con.createStatement();
-				rs = stmt.executeQuery("UPDATE INVOICE SET data = '" + data + "' WHERE ID = " + id);
+				String sql = "UPDATE INVOICE SET data = " + data + " WHERE ID = " + id;
+				rs = stmt.executeQuery(sql);
 				return rs.getString("Id");
 			} catch (Exception exc){
 				//
