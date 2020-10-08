@@ -8,7 +8,7 @@ FROM node:12-alpine
 ENV USER node
 ENV WORKDIR /home/$USER/app
 WORKDIR $WORKDIR
-COPY --from=0 /usr/src/app/node_modules node_modules
+ADD --from=0 /usr/src/app/node_modules node_modules
 RUN chown $USER:$USER $WORKDIR
 COPY --chown=node . $WORKDIR
 # In production environment uncomment the next line
