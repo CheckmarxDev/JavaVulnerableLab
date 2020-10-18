@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "s3Bucket" {
   bucket = "S3B_181355"
-  acl    = private"
+  acl    = "private"
 
   policy = <<EOF
 	{
