@@ -1,0 +1,91 @@
+/* SCA Result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+{
+  "CVE": [
+    {
+      "CVE2020-1745": [
+        {
+          "allow_AJP": [
+            {
+              "Details": [
+                {
+                  "artifactId": "undertow-core",
+                  "description": "A file inclusion vulnerability enabled with an open port 8009",
+                  "groupId": "io.undertow",
+                  "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1745",
+                  "version": "2.0.30"
+                }
+              ],
+              "Severity": "high",
+              "SeverityScore": 9.8
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
