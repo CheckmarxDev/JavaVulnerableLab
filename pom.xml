@@ -11,7 +11,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>3.8.1</version0>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -33,6 +33,7 @@
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
 		<version>4.0.1.Final</version>
+		<scope>test</scope>
 	</dependency>
 	<dependency>
 		<groupId>org.apache.tomcat</groupId>
