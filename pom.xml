@@ -33,6 +33,7 @@
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
 		<version>4.0.1.Final</version>
+		<scope>test</scope>
 	</dependency>
 	<dependency>
 		<groupId>org.apache.tomcat</groupId>
