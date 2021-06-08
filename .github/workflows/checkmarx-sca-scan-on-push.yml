@@ -36,5 +36,4 @@ jobs:
         break_build: false
         scanners: sca
         bug_tracker: GitHub
-        params: --sca.enabledZipScan=true --sca.filter-score=8.0 --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
-
+        params: --sca.includeSources=true --sca.enabledZipScan=true --sca.filter-score=8.0 --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
