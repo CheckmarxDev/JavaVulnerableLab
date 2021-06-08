@@ -26,7 +26,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1 # GitHub Action version
       with:
-        project: RyanW_SCA_Enablement_Lab
+        project: RyanW_SCA_Enablement_Lab_2
         sca_api_url: https://api.scacheckmarx.com
         sca_app_url: https://sca.scacheckmarx.com
         sca_access_control_url: https://platform.checkmarx.net
@@ -36,4 +36,4 @@ jobs:
         break_build: false
         scanners: sca
         bug_tracker: GitHub
-        params: --sca.includeSources=true --sca.enabledZipScan=true --sca.filter-score=8.0 --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
+        params: --sca.team-for-new-projects='/CxServer/SCA-PM/Champions/SamQbush'  --sca.filter-score=8.0 --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
