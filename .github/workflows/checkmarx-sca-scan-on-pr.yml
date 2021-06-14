@@ -37,4 +37,4 @@ jobs:
         break_build: false
         scanners: sca
         bug_tracker: GITHUBPULL
-        params: --github.block-merge=true --github.error-merge=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} 
+        params: --codebash-url='true'  --github.error-merge=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} 
