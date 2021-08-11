@@ -7,3 +7,4 @@ Disallow: /admin/Configure.jsp
 Disallow: /header.jsp
 Disallow: /myprofile.jsp
 Disallow: /footer.jsp
+Disallow: /admin/non-existant.jsp
