@@ -26,7 +26,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1 # GitHub Action version
       with:
-        project: MFCx_CxFlow_JavaVulnLab-02 # <-- Insert Checkmarx CxSCA Project Name
+        project: MFCx_CxFlow_JavaVulnLab-03 # <-- Insert Checkmarx CxSCA Project Name
         sca_api_url: https://api.scacheckmarx.com
         sca_app_url: https://sca.scacheckmarx.com
         sca_access_control_url: https://platform.checkmarx.net
@@ -36,7 +36,7 @@ jobs:
         break_build: false
         scanners: sca
         bug_tracker: GitHub
-        params: --sca.team-for-new-projects='/CxServer/SCA-PM/Champions/cxflow-demo'  --sca.filter-score=8.0 --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
+        params: --sca.includeSources=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
         # Lab 1: params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
         # Lab 2: params: --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
         # Lab 3: params: --sca.filter-score=8.0 --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
@@ -45,3 +45,5 @@ jobs:
         # Lab 6: params: --sca.includeSources=true --sca.enabledZipScan=true --sca.filter-score=8.0 --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
         # Lab 7: teams on runs for new projects
         #        params: --sca.team-for-new-projects='/CxServer/SCA-PM/Champions/cxflow-demo'  --sca.filter-score=8.0 --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
+        # Lab 1 + Exploitable path w. --sca.includeSources=true
+        #        params: --sca.includeSources=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
