@@ -36,5 +36,6 @@ jobs:
         break_build: false
         scanners: sca
         bug_tracker: GitHub
-        params: --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
-        # Previous: params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
+        params: --sca.filter-score=8.0 --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
+        # Previous Lab 1: params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
+        # Previous Lab 2: params: --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
