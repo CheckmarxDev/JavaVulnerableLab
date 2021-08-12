@@ -37,4 +37,5 @@ jobs:
         break_build: false
         scanners: sca
         bug_tracker: GITHUBPULL
+        github_token: ${{ secrets.GH_TOKEN }} # To be stored in GitHub Secrets.
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }}
