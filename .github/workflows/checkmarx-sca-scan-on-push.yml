@@ -35,8 +35,8 @@ jobs:
         sca_password: ${{ secrets.CHECKMARX_SCA_PASSWORD }} # To be stored in GitHub Secrets.
         break_build: false
         scanners: sca
-        # bug_tracker: GitHub -> previous
-        bug_tracker: GITHUBPULL
+        # bug_tracker: GitHub / GITHUBPULL-> previous
+        bug_tracker: GitHub
         params: --sca.includeSources=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
         # Lab 1: params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
         # Lab 2: params: --sca.filter-severity=HIGH --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
