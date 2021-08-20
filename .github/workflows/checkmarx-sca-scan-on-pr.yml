@@ -39,3 +39,8 @@ jobs:
         bug_tracker: GITHUBPULL
         github_token: ${{ secrets.GH_TOKEN }} # To be stored in GitHub Secrets.
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }}
+          # Upload the Report for CodeQL/Security Alerts
+    - name: Upload SARIF file # added from https://github.com/checkmarxSE/JVL-Github_Actions_Demo/blob/master/.github/workflows/checkmarx-analysis.yml
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: cx.sarif
