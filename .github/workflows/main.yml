@@ -43,7 +43,7 @@ jobs:
     # Provide Checkmarx Password
           checkmarx_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
     # Provide Checkmarx Client Secret
-    # checkmarx_client_secret: # default is 
+          checkmarx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
     # Select a Checkmarx Project
           project:  ${{ GITHUB.REPOSITORY }}
     # Select an Application Name used by downstream bug tracker systems
