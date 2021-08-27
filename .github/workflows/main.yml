@@ -53,13 +53,13 @@ jobs:
     # Break build based on Checkmarx findings?
     # break_build: # optional
     # Bug tracker for the scan results.
-    # bug_tracker: # optional, default is Sarif
+          bug_tracker: GitHub
     # Incremental Scans?
     # incremental: # optional, default is true
     # Additional CLI parameters
-    # params: # optional, default is 
+        params: --cx-flow.filter-severity=High
     # GitHub API Token
-    # github_token: # optional, default is ${{ github.token }}
+        github_token: ${{ secrets.GITHUBTOKEN }}
     # Vulnerability Scanners (sast, sca, ast, cxgo)
           scanners: sast 
     # Provide SCA API URL
