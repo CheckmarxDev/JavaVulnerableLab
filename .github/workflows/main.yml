@@ -57,9 +57,9 @@ jobs:
     # Incremental Scans?
     # incremental: # optional, default is true
     # Additional CLI parameters
-        params: --cx-flow.filter-severity=High
+          params: --cx-flow.filter-severity=High
     # GitHub API Token
-        github_token: ${{ secrets.GITHUBTOKEN }}
+          github_token: ${{ secrets.GITHUBTOKEN }}
     # Vulnerability Scanners (sast, sca, ast, cxgo)
           scanners: sast 
     # Provide SCA API URL
