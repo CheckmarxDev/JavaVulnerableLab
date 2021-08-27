@@ -59,8 +59,8 @@ jobs:
     # Additional CLI parameters
           params: --cx-flow.filter-severity=High
                   --branch=${basename ${{GITHUB.REF}}}
-                  --repo-name=${{ GITHUB.REPOSITORY }}
-                  --namespace=${{ GITHUB.ACTOR }}
+                  --repo-name=${{ github.event.repository.name }}
+                  --namespace=${{ github.repository_owner }}
     # GitHub API Token
           github_token: ${{ secrets.GITHUBTOKEN }}
     # Vulnerability Scanners (sast, sca, ast, cxgo)
