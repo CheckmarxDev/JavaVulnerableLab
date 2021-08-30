@@ -33,7 +33,7 @@ jobs:
     # Provide Checkmarx URL
           checkmarx_url: https://cxprivatecloud.checkmarx.net/
     # Select a Checkmarx Team
-          team: ${{ secrets.CX_PRIVATECLOUD_TEAM }}
+          team: CxServer/SP/EMEA/checkmarx.ch - 972
     # Provide Checkmarx Username
           checkmarx_username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
     # Provide Checkmarx Password
