@@ -13,7 +13,6 @@ https://www.udemy.com/hacking-securing-java-web-programming/
 
 **Warning**: Don't run this app in Your Main Machine or in  an online server.  Install it in Vitual Machine.
 
-NEW COMMENT More More
  
 How to Use/Setup ?
 -------------
