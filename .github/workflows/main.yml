@@ -60,8 +60,8 @@ jobs:
                   --namespace=${{ github.repository_owner }}
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
-                  --sca.includeSources=true
-                  --sca.enabledZipScan=true
+    #             --sca.includeSources=true
+    #             --sca.enabledZipScan=true
     # GitHub API Token
           github_token: ${{ secrets.GITHUBTOKEN }}
     # Vulnerability Scanners (sast, sca, ast, cxgo)
