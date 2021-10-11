@@ -28,7 +28,7 @@ jobs:
       - name: Checkmarx CxFlow Action
       # You may pin to the exact commit or the version.
       # uses: checkmarx-ts/checkmarx-cxflow-github-action@fe2a395cbbee31268470d92b6c53ebc483005f0f
-        uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1
+        uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.2
         with:
     # Provide Checkmarx URL
           checkmarx_url: https://cxprivatecloud.checkmarx.net/
