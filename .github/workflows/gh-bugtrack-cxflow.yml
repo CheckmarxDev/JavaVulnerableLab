@@ -7,6 +7,15 @@ on:
       bugtracker:
         required: true
         type: string
+    secrets: 
+      username:
+        required: true
+        description: Cx username
+      password:
+         required: true
+         description: Cx password
+        
+        
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -31,9 +40,9 @@ jobs:
     # Select a Checkmarx Team
           team: CxServer/SP/EMEA/checkmarx.ch - 972
     # Provide Checkmarx Username
-          checkmarx_username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
+          checkmarx_username: ${{ secrets.username }}
     # Provide Checkmarx Password
-          checkmarx_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
+          checkmarx_password: ${{ secrets.password }}
     # Provide Checkmarx Client Secret
           checkmarx_client_secret: 014DF517-39D1-4453-B7B3-9930C563627C
     # Select a Checkmarx Project
