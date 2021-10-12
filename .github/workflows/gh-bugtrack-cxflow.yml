@@ -41,6 +41,7 @@ jobs:
           echo merge id ${{ github.event.number }}
           echo repo-name ${{ github.event.repository.name }}
           echo namespace ${{ github.repository_owner }}
+          echo branch ${{ github.head_ref }}
           
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
