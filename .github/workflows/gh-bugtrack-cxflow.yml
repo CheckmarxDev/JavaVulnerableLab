@@ -68,8 +68,9 @@ jobs:
     # Additional CLI parameters
           params: --cx-flow.filter-severity=High
                   --cx-flow.filter-category=SQL_INJECTION
-                  --branch=${basename ${{GITHUB.REF}}}
+                  --branch=${{ github.head_ref }}
                   --repo-name=${{ github.event.repository.name }}
+                  --merge-id = ${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
