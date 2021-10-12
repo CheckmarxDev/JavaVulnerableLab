@@ -8,13 +8,21 @@ on:
         required: true
         type: string
     secrets: 
-      username:
-        required: true
-        description: Cx username
-      password:
+      sast_username:
+        required: false
+        description: Cx sast username
+      sast_password:
+         required: false
+         description: Cx sast password
+      sca_username:
+        required: false
+        description: Cx sca username
+      sca_password:
+         required: false
+         description: Cx sca password
+      githubtoken:
          required: true
-         description: Cx password
-        
+ 
         
 
 
@@ -40,9 +48,9 @@ jobs:
     # Select a Checkmarx Team
           team: CxServer/SP/EMEA/checkmarx.ch - 972
     # Provide Checkmarx Username
-          checkmarx_username: ${{ secrets.username }}
+          checkmarx_username: ${{ secrets.sast_username }}
     # Provide Checkmarx Password
-          checkmarx_password: ${{ secrets.password }}
+          checkmarx_password: ${{ secrets.sast_password }}
     # Provide Checkmarx Client Secret
           checkmarx_client_secret: 014DF517-39D1-4453-B7B3-9930C563627C
     # Select a Checkmarx Project
@@ -68,7 +76,7 @@ jobs:
     #             --sca.includeSources=true
     #             --sca.enabledZipScan=true
     # GitHub API Token
-          github_token: ${{ secrets.GITHUBTOKEN }}
+          github_token: ${{ secrets.githubtoken }}
     # Vulnerability Scanners (sast, sca, ast, cxgo)
           scanners: sast
     # Provide SCA API URL
@@ -80,7 +88,7 @@ jobs:
     # Provide SCA Tenant
           sca_tenant: SCA_Jurgan_Eitle
     # Provide SCA Username
-          sca_username: ${{ secrets.CXSCA_USERNAME }}
+          sca_username: ${{ secrets.sca_usernname }}
     # Provide SCA Password
           sca_password: ${{ secrets.CXSCA_PASSWORD }}
    
