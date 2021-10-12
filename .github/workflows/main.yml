@@ -20,7 +20,7 @@ jobs:
     if: github.event_name == 'push'
     uses: jvlstuff/JavaVulnerableLab/.github/workflows/gh-bugtrack-cxflow.yml@master
     with:
-        bugtracker: Github
+        bugtracker: GitHub
   pull_request:
       name: pullrequest
       if: github.event_name == 'pull_request'
