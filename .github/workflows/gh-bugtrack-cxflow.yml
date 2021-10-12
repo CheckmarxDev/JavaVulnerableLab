@@ -41,7 +41,7 @@ jobs:
           echo merge id ${{ github.event.number }}
           echo repo-name ${{ github.event.repository.name }}
           echo namespace ${{ github.repository_owner }}
-          echo branch ${{GITHUB.REF}}
+          echo branch ${{ github.head_ref }}
           
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -75,12 +75,12 @@ jobs:
     # Incremental Scans?
           incremental: false # optional, default is true
     # Additional CLI parameters
-          params: --cx-flow.filter-severity=High
-                  --cx-flow.filter-category=SQL_INJECTION
-                  --branch=${{GITHUB.REF}}
+          params: --branch=${{ github.head_ref }}
                   --repo-name=${{ github.event.repository.name }}
                   --merge-id = ${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
+                  --cx-flow.filter-severity=High
+                  --cx-flow.filter-category=SQL_INJECTION
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
     #             --sca.includeSources=true
