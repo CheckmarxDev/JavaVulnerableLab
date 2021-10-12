@@ -77,7 +77,7 @@ jobs:
     # Additional CLI parameters
           params: --branch=${{ github.head_ref }}
                   --repo-name=${{ github.event.repository.name }}
-                  --merge-id = ${{ github.event.number }}
+                  --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
                   --cx-flow.filter-severity=High
                   --cx-flow.filter-category=SQL_INJECTION
