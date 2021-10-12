@@ -18,7 +18,7 @@ jobs:
   push_event:
     name: pushevent
     if: github.event_name == 'push'
-    uses: jvlstuff/JavaVulnerableLab/.github/workflows/gh-bugtrack-cxflow@master
+    uses: juegge/jvlstuff/JavaVulnerableLab/.github/workflows/gh-bugtrack-cxflow@master
     with:
         bugracker: Github
   pull_request:
