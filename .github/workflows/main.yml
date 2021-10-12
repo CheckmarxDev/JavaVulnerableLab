@@ -22,8 +22,11 @@ jobs:
     with:
         bugtracker: GitHub
     secrets:
-        username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
-        password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
+        sast_username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
+        sast_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
+        sca_username: ${{ secrets.CXSCA_USERNAME }}
+        sca_password: ${{ secrets.CXSCA_PASSWORD }}
+        githubtoken: ${{ secrets.GITHUBTOKEN }}
         
   pull_request:
       name: pullrequest
@@ -34,4 +37,7 @@ jobs:
       secrets:
         username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
         password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
+        sca_username: ${{ secrets.CXSCA_USERNAME }}
+        sca_password: ${{ secrets.CXSCA_PASSWORD }}
+        githubtoken: ${{ secrets.GITHUBTOKEN }}
    
