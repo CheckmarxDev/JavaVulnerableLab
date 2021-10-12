@@ -21,10 +21,15 @@ jobs:
     uses: jvlstuff/JavaVulnerableLab/.github/workflows/gh-bugtrack-cxflow.yml@master
     with:
         bugtracker: GitHub
+        username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
+        password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
+        
   pull_request:
       name: pullrequest
       if: github.event_name == 'pull_request'
       uses: jvlstuff/JavaVulnerableLab/.github/workflows/gh-bugtrack-cxflow.yml@master
       with:
-        bugtracker: GITHUBPULL      
+        bugtracker: GITHUBPULL 
+        username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
+        password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
    
