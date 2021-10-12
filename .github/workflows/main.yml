@@ -15,67 +15,16 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-        
-      - name: Checkmarx CxFlow Action
-      # You may pin to the exact commit or the version.
-      # uses: checkmarx-ts/checkmarx-cxflow-github-action@fe2a395cbbee31268470d92b6c53ebc483005f0f
-        uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.2
-        with:
-    # Provide Checkmarx URL
-          checkmarx_url: https://cxprivatecloud.checkmarx.net/
-    # Select a Checkmarx Team
-          team: CxServer/SP/EMEA/checkmarx.ch - 972
-    # Provide Checkmarx Username
-          checkmarx_username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
-    # Provide Checkmarx Password
-          checkmarx_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
-    # Provide Checkmarx Client Secret
-          checkmarx_client_secret: 014DF517-39D1-4453-B7B3-9930C563627C
-    # Select a Checkmarx Project
-          project:  ${{ GITHUB.REPOSITORY }}
-    # Select an Application Name used by downstream bug tracker systems
-          app: ${{ GITHUB.REPOSITORY }}
-    # Select a Checkmarx Preset
-          preset: 'Checkmarx Express'
-    # Break build based on Checkmarx findings?
-    # break_build: # optional
-    # Bug tracker for the scan results.
-          bug_tracker: GitHub
-    # Incremental Scans?
-    # incremental: # optional, default is true
-    # Additional CLI parameters
-          params: --cx-flow.filter-severity=High
-                  --cx-flow.filter-category=SQL_INJECTION
-                  --branch=${basename ${{GITHUB.REF}}}
-                  --repo-name=${{ github.event.repository.name }}
-                  --namespace=${{ github.repository_owner }}
-                  --sca.filter-severity=High
-                  --sca.filter-score=9.0
-    #             --sca.includeSources=true
-    #             --sca.enabledZipScan=true
-    # GitHub API Token
-          github_token: ${{ secrets.GITHUBTOKEN }}
-    # Vulnerability Scanners (sast, sca, ast, cxgo)
-          scanners: sast,sca
-    # Provide SCA API URL
-          sca_api_url: https://api-sca.checkmarx.net 
-    # Provide SCA APP URL
-          sca_app_url: https://sca.checkmarx.net 
-    # Provide SCA Access Control URL
-          sca_access_control_url: https://platform.checkmarx.net
-    # Provide SCA Tenant
-          sca_tenant: SCA_Jurgan_Eitle
-    # Provide SCA Username
-          sca_username: ${{ secrets.CXSCA_USERNAME }}
-    # Provide SCA Password
-          sca_password: ${{ secrets.CXSCA_PASSWORD }}
+  push_event:
+    name: pushevent
+    if: github.event_name == 'push'
+    uses: jvlstuff/JavaVulnerableLab/master/.github/workflows/gh-bugtrack-cxflow@v1
+    with:
+        bugracker: Github
+  pull_request:
+      name: pullrequest
+      if: github.event_name == 'pull_request'
+      uses: jvlstuff/JavaVulnerableLab/master/.github/workflows/gh-bugtrack-cxflow@v1
+      with:
+        bugracker: GITHUBPULL      
    
