@@ -82,7 +82,7 @@ jobs:
                   --repo-name=${{ github.event.repository.name }}
                   --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
-                  --cx-flow.filter-state='To Verify'
+                  --cx-flow.filter-state=Confirmed
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
     #             --cx-flow.filter-severity=High
