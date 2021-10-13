@@ -7,6 +7,9 @@ on:
       bugtracker:
         required: true
         type: string
+      branch:
+        required: true
+        type: string
     secrets: 
       sast_username:
         required: false
@@ -41,7 +44,7 @@ jobs:
           echo merge id ${{ github.event.number }}
           echo repo-name ${{ github.event.repository.name }}
           echo namespace ${{ github.repository_owner }}
-          echo branch ${{ github.head_ref }}
+          echo branch ${{ inputs.branch }}
           
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -75,7 +78,7 @@ jobs:
     # Incremental Scans?
           incremental: false # optional, default is true
     # Additional CLI parameters
-          params: --branch=${{ github.head_ref }}
+          params: --branch=${{ inputs.branch }}
                   --repo-name=${{ github.event.repository.name }}
                   --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
