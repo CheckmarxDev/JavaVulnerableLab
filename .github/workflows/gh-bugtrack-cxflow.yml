@@ -40,11 +40,14 @@ jobs:
      
     steps:
       - name: Print vars
+        shell: bash
         run:  | 
           echo merge id ${{ github.event.number }}
           echo repo-name ${{ github.event.repository.name }}
           echo namespace ${{ github.repository_owner }}
-          echo branch ${{ inputs.branch }}
+          echo "::set-output name=branch::${(inputs.branch}}"
+          echo "::set-output name=state::'To Verify'"
+        id: myvars
           
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -78,11 +81,11 @@ jobs:
     # Incremental Scans?
           incremental: false # optional, default is true
     # Additional CLI parameters
-          params: --branch=${{ inputs.branch }}
+          params: --branch=${{ steps.myvars.branch }}
                   --repo-name=${{ github.event.repository.name }}
                   --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
-                  --cx-flow.filter-state=To Verify
+                  --cx-flow.filter-state=${{steps.myvars.state}}
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
     #             --cx-flow.filter-severity=High
