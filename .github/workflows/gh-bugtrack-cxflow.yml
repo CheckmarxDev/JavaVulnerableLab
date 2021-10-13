@@ -43,7 +43,7 @@ jobs:
       - name: Create vars
         env:
             github_branch: ${{inputs.branch}}
-            toverify: "Confirmed"
+            toverify: "To Verify"
         shell: bash
         run:  | 
           echo github_branch ${github_branch#refs/heads/}
@@ -101,8 +101,8 @@ jobs:
                   --cx-flow.filter-state=${{steps.myvars.outputs.state}}
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
-    #             --cx-flow.filter-severity=High
-    #             --cx-flow.filter-category=SQL_INJECTION
+                  --cx-flow.filter-severity=""
+                  --cx-flow.filter-category=""
     #             --sca.includeSources=true
     #             --sca.enabledZipScan=true
     # GitHub API Token
