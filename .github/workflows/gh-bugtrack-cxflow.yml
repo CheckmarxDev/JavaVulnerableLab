@@ -72,7 +72,7 @@ jobs:
     # Select a Checkmarx Preset
           preset: 'Checkmarx Express'
     # Break build based on Checkmarx findings?
-    # break_build: # optional
+          break_build: true  # optional
     # Bug tracker for the scan results.
           bug_tracker: ${{ inputs.bugtracker}}
     # Incremental Scans?
@@ -82,11 +82,11 @@ jobs:
                   --repo-name=${{ github.event.repository.name }}
                   --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
-                  --cx-flow.filter-severity=High
-                  --cx-flow.filter-category=SQL_INJECTION
                   --cx-flow.filter-state="To Verify"
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
+    #             --cx-flow.filter-severity=High
+    #             --cx-flow.filter-category=SQL_INJECTION
     #             --sca.includeSources=true
     #             --sca.enabledZipScan=true
     # GitHub API Token
