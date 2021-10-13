@@ -39,15 +39,24 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
      
     steps:
-      - name: Print vars
+      - name: Create vars
         shell: bash
         run:  | 
+          env:
+            github_branch: ${{inputs.branch}}
+            toverify: "To Verify"
+          echo "::set-output name=branch::${github_branch#refs/heads/}"
+          echo "::set-output name=state::${toverify}"
+        id: myvars
+        
+      - name: print vars
+        run: |
           echo merge id ${{ github.event.number }}
           echo repo-name ${{ github.event.repository.name }}
           echo namespace ${{ github.repository_owner }}
-          echo "::set-output name=branch::${{inputs.branch}}"
-          echo "::set-output name=state::'To Verify'"
-        id: myvars
+          echo branch for cxflow parameter ${{inputs.branch}}
+          echo branch for project name ${{steps.myvars.output.branch}}
+          echo state for filtering ${{steps.myvars.output.state}}
           
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -81,11 +90,11 @@ jobs:
     # Incremental Scans?
           incremental: false # optional, default is true
     # Additional CLI parameters
-          params: --branch=${{ steps.myvars.branch }}
+          params: --branch=${{ inputs.branch }}
                   --repo-name=${{ github.event.repository.name }}
                   --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
-                  --cx-flow.filter-state=${{steps.myvars.state}}
+                  --cx-flow.filter-state=${{steps.myvars.output.state}}
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
     #             --cx-flow.filter-severity=High
