@@ -84,6 +84,7 @@ jobs:
                   --namespace=${{ github.repository_owner }}
                   --cx-flow.filter-severity=High
                   --cx-flow.filter-category=SQL_INJECTION
+                  --cx-flow.filter-state="To Verify"
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
     #             --sca.includeSources=true
