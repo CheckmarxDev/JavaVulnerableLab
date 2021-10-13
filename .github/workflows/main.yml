@@ -9,19 +9,20 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
   push_event:
     name: pushevent
     if: github.event_name == 'push'
     uses: jvlstuff/JavaVulnerableLab/.github/workflows/gh-bugtrack-cxflow.yml@master
     with:
         bugtracker: GitHub
-        branch: ${{github.ref##*/}} #cut off refs/heads/
+        branch: ${{github.ref}}##*/ #cut off refs/heads/
     secrets:
         sast_username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
         sast_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
