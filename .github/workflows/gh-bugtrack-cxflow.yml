@@ -45,7 +45,7 @@ jobs:
           echo merge id ${{ github.event.number }}
           echo repo-name ${{ github.event.repository.name }}
           echo namespace ${{ github.repository_owner }}
-          echo "::set-output name=branch::${(inputs.branch}}"
+          echo "::set-output name=branch::${{inputs.branch}}"
           echo "::set-output name=state::'To Verify'"
         id: myvars
           
