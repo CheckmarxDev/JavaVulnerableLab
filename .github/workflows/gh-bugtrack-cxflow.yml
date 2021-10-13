@@ -25,6 +25,9 @@ on:
          description: Cx sca password
       githubtoken:
          required: true
+      sast_filter_state: 
+         required: false
+         description: Confirmed, To Verify, Not Exploitable
  
         
 
@@ -59,6 +62,7 @@ jobs:
           echo branch for cxflow parameter ${{inputs.branch}}
           echo branch for project name ${{steps.myvars.outputs.branch}}
           echo state for filtering ${{steps.myvars.outputs.state}}
+          echo state from input ${{secrets.sast_filter_state}}
           
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -96,7 +100,7 @@ jobs:
                   --repo-name=${{ github.event.repository.name }}
                   --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
-                  --cx-flow.filter-state=${{steps.myvars.outputs.state}}
+                  --cx-flow.filter-state=${{secrets.sast_filter_state}}
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
     #             --cx-flow.filter-severity=High
