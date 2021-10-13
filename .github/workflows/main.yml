@@ -21,6 +21,7 @@ jobs:
     uses: jvlstuff/JavaVulnerableLab/.github/workflows/gh-bugtrack-cxflow.yml@master
     with:
         bugtracker: GitHub
+        branch: ${{github.ref##*/}} #cut off refs/heads/
     secrets:
         sast_username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
         sast_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
@@ -34,6 +35,7 @@ jobs:
       uses: jvlstuff/JavaVulnerableLab/.github/workflows/gh-bugtrack-cxflow.yml@master
       with:
         bugtracker: GITHUBPULL
+        branch: ${{github.head_ref}}
       secrets:
         sast_username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
         sast_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
