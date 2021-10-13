@@ -45,8 +45,8 @@ jobs:
             toverify: "To Verify"
         shell: bash
         run:  | 
-          echo "::set-output name=branch::${github_branch#refs/heads/}"
-          echo "::set-output name=state::${toverify}"
+          echo "::set-output name=branch::${{github_branch#refs/heads/}}"
+          echo "::set-output name=state::${{toverify}}"
         id: myvars
         
       - name: print vars
