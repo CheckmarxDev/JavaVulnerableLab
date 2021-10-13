@@ -40,11 +40,11 @@ jobs:
      
     steps:
       - name: Create vars
-        shell: bash
-        run:  | 
-          env:
+        env:
             github_branch: ${{inputs.branch}}
             toverify: "To Verify"
+        shell: bash
+        run:  | 
           echo "::set-output name=branch::${github_branch#refs/heads/}"
           echo "::set-output name=state::${toverify}"
         id: myvars
