@@ -48,7 +48,7 @@ jobs:
           echo github_branch ${github_branch#refs/heads/}
           echo state ${toverify}
           echo "::set-output name=branch::${github_branch#refs/heads/}"
-          echo "::set-output name=state::${{toverify}}"
+          echo "::set-output name=state::${toverify}"
         id: myvars
         
       - name: print vars
