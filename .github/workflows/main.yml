@@ -26,7 +26,6 @@ jobs:
     secrets:
         sast_username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
         sast_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
-        sast_filter_state: ${{ secrets.SAST_RESULT_FILTER }}
         sca_username: ${{ secrets.CXSCA_USERNAME }}
         sca_password: ${{ secrets.CXSCA_PASSWORD }}
         githubtoken: ${{ secrets.GITHUBTOKEN }}
@@ -41,7 +40,6 @@ jobs:
       secrets:
         sast_username: ${{ secrets.CX_PRIVATECLOUD_USERNAME }}
         sast_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
-        sast_filter_state: ${{ secrets.SAST_RESULT_FILTER }}
         sca_username: ${{ secrets.CXSCA_USERNAME }}
         sca_password: ${{ secrets.CXSCA_PASSWORD }}
         githubtoken: ${{ secrets.GITHUBTOKEN }}
