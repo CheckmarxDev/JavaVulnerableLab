@@ -15,7 +15,7 @@
     "originLevel": "Project",
     "value": "Checkmarx Default",
     "valuetype": "String",
-    "allowOverride": true
+    "allowOverride": false
   },
   "scan.handler.git.repository": {
     "key": "scan.handler.git.repository",
