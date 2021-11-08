@@ -1,16 +1,47 @@
-version: 1
-
-checkmarx: 
-  scan:
-    #optional
-    tags:
-       "fromConfig": "true"
-
-    project:
-      tags: 
-        "fromConfig": "true"
-
-    configs:
-      sast:
-        presetName: 'Checkmarx Default'
-        incremental: 'true'
+{
+  "scan.config.sast.incremental": {
+    "key": "scan.config.sast.incremental",
+    "name": "incremental",
+    "category": "sast",
+    "originLevel": "Scan",
+    "value": "false",
+    "valuetype": "Bool",
+    "allowOverride": true
+  },
+  "scan.config.sast.presetName": {
+    "key": "scan.config.sast.presetName",
+    "name": "presetName",
+    "category": "sast",
+    "originLevel": "Project",
+    "value": "Checkmarx Default",
+    "valuetype": "String",
+    "allowOverride": true
+  },
+  "scan.handler.git.repository": {
+    "key": "scan.handler.git.repository",
+    "name": "repository",
+    "category": "git",
+    "originLevel": "Tenant",
+    "value": "",
+    "valuetype": "String",
+    "allowOverride": true
+  },
+  "scan.handler.git.token": {
+    "key": "scan.handler.git.token",
+    "name": "token",
+    "category": "git",
+    "originLevel": "Tenant",
+    "value": "",
+    "valuetype": "Secret",
+    "allowOverride": true
+  },
+  "scan.config.sast.filter": {
+    "key": "scan.config.sast.filter",
+    "name": "filter",
+    "category": "sast",
+    "originLevel": "Tenant",
+    "value": "",
+    "valuetype": "Block",
+    "allowOverride": true
+  }
+}
