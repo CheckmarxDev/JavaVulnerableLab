@@ -44,12 +44,13 @@ jobs:
         env:
             github_branch: ${{inputs.branch}}
             toverify: "To Verify"
+            cfm: "Confirmed"
         shell: bash
         run:  | 
           echo github_branch ${github_branch#refs/heads/}
-          echo state ${toverify}
+          echo state ${cfm}
           echo "::set-output name=branch::${github_branch#refs/heads/}"
-          echo "::set-output name=state::${toverify}"
+          echo "::set-output name=state::${cfm}"
         id: myvars
         
       - name: print vars
@@ -79,7 +80,7 @@ jobs:
     # Provide Checkmarx Password
           checkmarx_password: ${{ secrets.sast_password }}
     # Provide Checkmarx Client Secret
-          checkmarx_client_secret: 014DF517-39D1-4453-B7B3-9930C563627C
+    #       checkmarx_client_secret: 014DF517-39D1-4453-B7B3-9930C563627C
     # Select a Checkmarx Project
           project:  ${{ GITHUB.REPOSITORY }}
     # Select an Application Name used by downstream bug tracker systems
