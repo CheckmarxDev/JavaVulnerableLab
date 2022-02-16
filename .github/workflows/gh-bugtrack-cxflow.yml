@@ -59,7 +59,7 @@ jobs:
           echo namespace ${{ github.repository_owner }}
           echo branch for cxflow parameter ${{inputs.branch}}
           echo branch for project name ${{steps.myvars.outputs.branch}}
-          echo state for filtering ${{steps.myvars.outputs.state}}
+          echo state for filtering "${{steps.myvars.outputs.state}}"
           
           
           
@@ -68,7 +68,6 @@ jobs:
         
       - name: Checkmarx CxFlow Action
       # You may pin to the exact commit or the version.
-      # uses: checkmarx-ts/checkmarx-cxflow-github-action@fe2a395cbbee31268470d92b6c53ebc483005f0f
         uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4
         with:
     # Provide Checkmarx URL
@@ -98,7 +97,7 @@ jobs:
                   --repo-name=${{ github.event.repository.name }}
                   --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
-                  --cx-flow.filter-state=${{steps.myvars.outputs.state}}
+                  --cx-flow.filter-state="${{steps.myvars.outputs.state}}"
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
                   --cx-flow.filter-severity=""
