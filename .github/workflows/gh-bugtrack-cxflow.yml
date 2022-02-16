@@ -48,9 +48,9 @@ jobs:
         shell: bash
         run:  | 
           echo github_branch ${github_branch#refs/heads/}
-          echo state ${cfm}
+          echo state ${toverify}
           echo "::set-output name=branch::${github_branch#refs/heads/}"
-          echo "::set-output name=state::${cfm}"
+          echo "::set-output name=state::${toverify}"
         id: myvars
         
       - name: print vars
@@ -88,7 +88,7 @@ jobs:
     # Select a Checkmarx Preset
           preset: 'Checkmarx Express'
     # Break build based on Checkmarx findings?
-          break_build: true  # optional
+          break_build: false  # optional
     # Bug tracker for the scan results.
           bug_tracker: ${{ inputs.bugtracker}}
     # Incremental Scans?
