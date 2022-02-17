@@ -43,7 +43,7 @@ jobs:
       - name: Create vars
         env:
             github_branch: ${{inputs.branch}}
-            toverify: "To Verify"
+            toverify: To\ Verify
             cfm: Confirmed
         shell: bash
         run:  | 
@@ -106,7 +106,7 @@ jobs:
     #             --sca.includeSources=true
     #             --sca.enabledZipScan=true
     # GitHub API Token
-          github_token: ${{ secrets.githubtoken }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
     # Vulnerability Scanners (sast, sca, ast, cxgo)
           scanners: sast
     # Provide SCA API URL
