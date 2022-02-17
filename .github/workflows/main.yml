@@ -28,7 +28,6 @@ jobs:
         sast_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
         sca_username: ${{ secrets.CXSCA_USERNAME }}
         sca_password: ${{ secrets.CXSCA_PASSWORD }}
-        githubtoken: ${{ secrets.GITHUBTOKEN }}
         
   pull_request:
       name: pullrequest
@@ -42,5 +41,4 @@ jobs:
         sast_password: ${{ secrets.CX_PRIVATECLOUD_PASSWORD }}
         sca_username: ${{ secrets.CXSCA_USERNAME }}
         sca_password: ${{ secrets.CXSCA_PASSWORD }}
-        githubtoken: ${{ secrets.GITHUBTOKEN }}
    
