@@ -45,12 +45,13 @@ jobs:
             github_branch: ${{inputs.branch}}
             toverify: To Verify
             cfm: Confirmed
+            ne: Not Exploitable
         shell: bash
         run:  | 
           echo github_branch ${github_branch#refs/heads/}
-          echo state ${toverify}
+          echo state ${ne}
           echo "::set-output name=branch::${github_branch#refs/heads/}"
-          echo "::set-output name=state::${toverify}"
+          echo "::set-output name=state::${ne}"
         id: myvars
         
       - name: print vars
