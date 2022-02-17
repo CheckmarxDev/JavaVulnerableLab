@@ -23,8 +23,6 @@ on:
       sca_password:
          required: false
          description: Cx sca password
-      githubtoken:
-         required: true
 
  
         
@@ -49,9 +47,9 @@ jobs:
         shell: bash
         run:  | 
           echo github_branch ${github_branch#refs/heads/}
-          echo state ${ne}
+          echo state ${cfm}
           echo "::set-output name=branch::${github_branch#refs/heads/}"
-          echo "::set-output name=state::${ne}"
+          echo "::set-output name=state::${cfm}"
         id: myvars
         
       - name: print vars
