@@ -43,7 +43,7 @@ jobs:
       - name: Create vars
         env:
             github_branch: ${{inputs.branch}}
-            toverify: To\ Verify
+            toverify: To Verify
             cfm: Confirmed
         shell: bash
         run:  | 
