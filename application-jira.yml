@@ -1,0 +1,61 @@
+cxflow:
+  bug-tracker: JIRA
+  filter-severity:
+  - High
+  filter-category:
+  - SQL_Injection
+  - Stored_XSS
+  - Reflected_XSS_All_Clients
+  filter-cwe:
+  filter-status:
+  #   - Urgent
+  #   - Confirmed
+  #mitre-url: https://cwe.mitre.org/data/definitions/%s.html
+  #wiki-url: https://custodela.atlassian.net/wiki/spaces/AS/pages/79462432/Remediation+Guidance
+  #codebash-url: https://checkmarx-demo.codebashing.com/courses/
+
+checkmarx:
+  version: 9.0
+  team: /CxServer/JVL
+  multi-tenant: true
+  scan-preset: 
+  - ASA Premium
+
+
+jira:
+  url: https://bearj.atlassian.net/
+  username: jallaton@gmail.com
+  project: JVLSAST
+  issue-type: Bug
+  priorities:
+    High: High
+    Medium: Medium
+    Low: Low
+    Informational: Lowest
+  open-transition: In Progress
+  close-transition: Done
+  open-status:
+    - TO DO
+    - Backlog
+    - Selected for Development
+    - In Progress
+  closed-status:
+    - Done
+  fields:
+    - type: result
+      name: application
+      jira-field-name: Application
+      jira-field-type: label
+#    - type: result
+#      name: cwe
+#      jira-field-name: CWEs
+#      jira-field-type: label
+    - type: result
+      name: category
+      jira-field-name: Category
+      jira-field-type: label
+#    - type: result
+#      name: loc
+#      jira-field-name: LOC
+#      jira-field-type: label
+#      jira-default-value: XXXXX
