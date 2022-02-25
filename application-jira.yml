@@ -19,14 +19,14 @@ checkmarx:
   base-url: http://jurgene-lt.dm.cx
   team: /CxServer/JVL
   project: JavaVulnerableLab_CxFlow
-  preset: 
-  - ASA Premium
   url: ${checkmarx.base-url}/cxrestapi
   client-id: resource_owner_client
   scope: access_control_api sast_rest_api
   multi-tenant: true
   enabled-vulnerability-scanners: 
   - sast
+  preset: 
+  - ASA Premium
   
   
 jira:
