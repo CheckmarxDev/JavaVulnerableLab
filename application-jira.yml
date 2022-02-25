@@ -31,7 +31,7 @@ checkmarx:
   
   
 jira:
-  url: https://bearj.atlassian.net/
+  url: https://bearj.atlassian.net
   username: jallaton@gmail.com
   project: JVLSAST
   issue-type: Bug
