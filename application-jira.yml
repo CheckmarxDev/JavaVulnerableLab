@@ -17,11 +17,12 @@ cxflow:
 checkmarx:
   version: 9.0
   team: /CxServer/JVL
+  project: JavaVulnerableLab_CxFlow
   multi-tenant: true
   scan-preset: 
   - ASA Premium
   enabled-vulnerability-scanners:
-    - sast
+   - sast
 
 
 jira:
