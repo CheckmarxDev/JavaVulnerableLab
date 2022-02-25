@@ -16,8 +16,9 @@ cxflow:
 
 checkmarx:
   settings-override: true
-  username: 
-  password:
+  base-url: http://jurgene-lt.dm.cx
+  username: bla
+  password: bla
   version: 9.0
   team: /CxServer/JVL
   project: JavaVulnerableLab_CxFlow
