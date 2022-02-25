@@ -14,21 +14,6 @@ cxflow:
   #wiki-url: https://custodela.atlassian.net/wiki/spaces/AS/pages/79462432/Remediation+Guidance
   #codebash-url: https://checkmarx-demo.codebashing.com/courses/
 
-checkmarx:
-  settings-override: true
-  base-url: http://jurgene-lt.dm.cx
-  username: bla
-  password: bla
-  version: 9.0
-  team: /CxServer/JVL
-  project: JavaVulnerableLab_CxFlow
-  multi-tenant: true
-  scan-preset: 
-  - ASA Premium
-  enabled-vulnerability-scanners:
-  - sast
-
-
 jira:
   url: https://bearj.atlassian.net/
   username: jallaton@gmail.com
