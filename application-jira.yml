@@ -20,6 +20,8 @@ checkmarx:
   multi-tenant: true
   scan-preset: 
   - ASA Premium
+  enabled-vulnerability-scanners:
+    - sast
 
 
 jira:
