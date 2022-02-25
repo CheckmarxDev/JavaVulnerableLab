@@ -16,6 +16,8 @@ cxflow:
 
 checkmarx:
   settings-override: true
+  username: 
+  password:
   version: 9.0
   team: /CxServer/JVL
   project: JavaVulnerableLab_CxFlow
