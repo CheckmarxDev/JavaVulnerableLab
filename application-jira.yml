@@ -15,6 +15,7 @@ cxflow:
   #codebash-url: https://checkmarx-demo.codebashing.com/courses/
 
 checkmarx:
+  settings-override: true
   version: 9.0
   team: /CxServer/JVL
   project: JavaVulnerableLab_CxFlow
