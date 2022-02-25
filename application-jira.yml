@@ -22,7 +22,7 @@ checkmarx:
   scan-preset: 
   - ASA Premium
   enabled-vulnerability-scanners:
-   - sast
+  - sast
 
 
 jira:
