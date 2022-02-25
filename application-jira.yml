@@ -20,6 +20,7 @@ checkmarx:
   team: /CxServer/JVL
   project: JavaVulnerableLab_CxFlow
   url: ${checkmarx.base-url}/cxrestapi
+  portal-url: ${checkmarx.base-url}/cxwebinterface/Portal/CxWebService.asmx
   client-id: resource_owner_client
   scope: access_control_api sast_rest_api
   multi-tenant: true
