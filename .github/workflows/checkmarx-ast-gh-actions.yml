@@ -16,6 +16,6 @@ name: Checkmarx AST Github Action
     # Branch name
     branch: # optional, default is ${{ github.ref }}
     # GitHub API Token : optional, default is ${{ github.token }}
-    github_token:  ${{ secrets.GH_TOKEN }}
+    github_token:  # ${{ secrets.GH_TOKEN }}
     # Additional parameters for AST scan
     additional_params: # optional, default is 
