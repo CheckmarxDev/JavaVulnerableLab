@@ -16,6 +16,9 @@ jobs:
         uses: checkmarx/ast-github-action@main #Github Action version
         with:
           base_uri: https://ast.checkmarx.net/
-          cx_tenant: workshop
-          cx_client_id: ${{ secrets.CX_CLIENT_ID }}
-          cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+          cx_tenant: dp_wp_na
+          cx_client_id: ${{ secrets.CX_AST_CLIENT_ID }}
+          cx_client_secret: ${{ secrets.CX_AST_CLIENT_SECRET }}
+          #cx_tenant: workshop
+          #cx_client_id: ${{ secrets.CX_CLIENT_ID }}
+          #cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
