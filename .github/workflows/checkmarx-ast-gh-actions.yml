@@ -1,6 +1,7 @@
 name: Checkmarx AST CLI Action
         uses: checkmarx/ast-github-action@main #Github Action version
         with:
+          project_name: MFCxJavaVulnLabs-GHActions-01
           base_uri: https://ast.checkmarx.net/
           cx_tenant: dp_wp_na
           cx_client_id: ${{ secrets.CX_AST_CLIENT_ID }}
