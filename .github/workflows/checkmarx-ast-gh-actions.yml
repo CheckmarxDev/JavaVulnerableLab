@@ -1,21 +1,7 @@
-name: Checkmarx AST Github Action
-  # You may pin to the exact commit or the version.
-  # uses: Checkmarx/ast-github-action@34a3cf1cdb359db037d432f3c024fea7e0df71d8
-  uses: Checkmarx/ast-github-action@2.0.2
-  with:
-    # Provide the AST portal URL
-    base_uri: https://ast.checkmarx.net
-    # Provide the Tenant for AST portal URL
-    cx_tenant: dp_wp_na
-    # Client ID for AST portal authentication
-    cx_client_id: ${{ secrets.CX_AST_CLIENT_ID }}
-    # Secret key for AST portal authentication
-    cx_client_secret: ${{ secrets.CX_AST_CLIENT_SECRET }}
-    # Select a Checkmarx Project Name
-    project_name: ${{ github.repository }}
-    # Branch name
-    branch: # optional, default is ${{ github.ref }}
-    # GitHub API Token : optional, default is ${{ github.token }}
-    github_token:  # ${{ secrets.GH_TOKEN }}
-    # Additional parameters for AST scan
-    additional_params: # optional, default is 
+name: Checkmarx AST CLI Action
+        uses: checkmarx/ast-github-action@main #Github Action version
+        with:
+          base_uri: https://ast.checkmarx.net/
+          cx_tenant: dp_wp_na
+          cx_client_id: ${{ secrets.CX_AST_CLIENT_ID }}
+          cx_client_secret: ${{ secrets.CX_AST_CLIENT_SECRET }}
