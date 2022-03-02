@@ -1,0 +1,21 @@
+name: Checkmarx AST Scan
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkmarx AST CLI Action
+        uses: checkmarx/ast-github-action@main #Github Action version
+        with:
+          base_uri: https://ast.checkmarx.net/
+          cx_tenant: dp_wp_na
+          cx_client_id: ${{ secrets.CX_AST_CLIENT_ID }}
+          cx_client_secret: ${{ secrets.CX_AST_CLIENT_SECRET }}
+
