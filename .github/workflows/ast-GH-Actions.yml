@@ -19,7 +19,12 @@ jobs:
           cx_tenant: dp_wp_na
           cx_client_id: ${{ secrets.CX_AST_CLIENT_ID }}
           cx_client_secret: ${{ secrets.CX_AST_CLIENT_SECRET }}
-          additional_params: --tags MFCX+SEAN --scan-types sast,kics
+          additional_params: --tags MFCX+SEAN --scan-types sast,kics --file-filter !readme --report-format sarif --output-name results
           ##cx_tenant: workshop
           #cx_client_id: ${{ secrets.CX_CLIENT_ID }}
           #cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+      - name: Upload SARIF file
+          uses: github/codeql-action/upload-sarif@v1
+          with:
+            # Path to SARIF file relative to the root of the repository
+            sarif_file: results.sarif
