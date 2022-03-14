@@ -98,10 +98,11 @@ jobs:
                   --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
                   --cx-flow.filter-state=${{steps.myvars.outputs.state}}
+                  --cx-flow.filter-status=Recurrent
                   --sca.filter-severity=High
                   --sca.filter-score=9.0
-    #              --cx-flow.filter-severity=""
-    #              --cx-flow.filter-category=""
+                  --cx-flow.filter-severity=Medium
+    #             --cx-flow.filter-category=""
     #             --sca.includeSources=true
     #             --sca.enabledZipScan=true
     # GitHub API Token
