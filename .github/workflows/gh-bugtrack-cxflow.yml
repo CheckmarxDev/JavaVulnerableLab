@@ -44,12 +44,19 @@ jobs:
             toverify: To Verify
             cfm: Confirmed
             ne: Not Exploitable
+            recurrent: Recurrent
+            medium: Medium
         shell: bash
         run:  | 
           echo github_branch ${github_branch#refs/heads/}
           echo state ${cfm}
+          echo status ${recurrent}
+          echo severity ${medium}
           echo "::set-output name=branch::${github_branch#refs/heads/}"
           echo "::set-output name=state::${cfm}"
+          echo "::set-output name=status::${recurrent}"
+          echo "::set-output name=severity::${medium}"
+          
         id: myvars
         
       - name: print vars
@@ -98,10 +105,10 @@ jobs:
                   --merge-id=${{ github.event.number }}
                   --namespace=${{ github.repository_owner }}
                   --cx-flow.filter-state=${{steps.myvars.outputs.state}}
-                  --cx-flow.filter-status=Recurrent
-                  --sca.filter-severity=High
+                  --cx-flow.filter-status=${{steps.myvars.outputs.status}}
+                  --sca.filter-severity=${{steps.myvars.outputs.severity}}
                   --sca.filter-score=9.0
-                  --cx-flow.filter-severity=Medium
+                  --cx-flow.filter-severity=${{steps.myvars.outputs.severity}}
     #             --cx-flow.filter-category=""
     #             --sca.includeSources=true
     #             --sca.enabledZipScan=true
