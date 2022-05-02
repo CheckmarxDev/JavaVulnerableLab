@@ -1,4 +1,4 @@
-name: Checkmarx AST Scan - on Push
+name: CxAST CLI Action - on Push
 on:
   push:
     branches:
