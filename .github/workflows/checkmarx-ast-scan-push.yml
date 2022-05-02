@@ -1,4 +1,4 @@
-name: CxAST CLI Action - on Push
+name: CxAST CLI Action - Scan on Push
 on:
   push:
     branches:
