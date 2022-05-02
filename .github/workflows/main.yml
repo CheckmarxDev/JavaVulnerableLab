@@ -29,10 +29,10 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
         
-        - name: Checkmarx AST CLI Action
+      - name: Checkmarx AST CLI Action
         uses: checkmarx/ast-github-action@main #Github Action version
         with:
           base_uri: https://eu.ast.checkmarx.net/
           cx_tenant: cx_gs_enablement
-          cx_client_id: ${{ secrets.CX_CLIENT_ID }}
-          cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+          cx_client_id: ${{ secrets.CLIENT_ID }}
+          cx_client_secret: ${{ secrets.SECRET }}
