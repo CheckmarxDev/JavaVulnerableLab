@@ -1,4 +1,4 @@
-name: Checkmarx AST Scan
+name: Checkmarx AST Scan - on Push
 on:
   push:
     branches:
