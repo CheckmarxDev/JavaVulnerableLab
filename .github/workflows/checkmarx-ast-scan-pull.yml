@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Checkmarx AST CLI Action
+      - name: CxAST CLI Action - Scan on Pull
         uses: checkmarx/ast-github-action@main #Github Action version
         with:
           base_uri: https://eu.ast.checkmarx.net/
