@@ -1,0 +1,34 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CxAST CLI Action - Scan on Pull
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Checkmarx Action
+      uses: checkmarx-ts/checkmarx-github-action@v1.0.6
+      with:
+        cxAction: ScaScan
+        cxScaAccount: ${{ secrets.CX_SCA_USERNAME }}
+        cxScaUsername: ${{ secrets.CX_SCA_PASSWORD }}
+        cxScaPassword: ${{ secrets.CX_SCA_GH_TOKEN}}
+        cxExecutePackageDependency: true
+         #cxVersion: "2020.2.18"
+        #cxLog: log.log
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2.2.1
+      with:
+        name: log.log
+        path: log.log
