@@ -17,18 +17,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Checkmarx Action
-      uses: checkmarx-ts/checkmarx-github-action@v1.0.6
+    - name: Checkmarx CxFlow Action
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@9975af7d6b957abec9ee9646effa3fb3b82c5314
       with:
         cxAction: ScaScan
+        project: ${{ secrets.CHECKMARX_SCA_PROJECT }}
         cxScaAccount: ${{ secrets.CHECKMARX_SCA_USERNAME }}
         cxScaUsername: ${{ secrets.CHECKMARX_SCA_PASSWORD }}
         cxScaPassword: ${{ secrets.GH_TOKEN}}
         cxExecutePackageDependency: true
-         #cxVersion: "2020.2.18"
-        #cxLog: log.log
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2.2.1
-      with:
-        name: log.log
-        path: log.log
+        cxGithubIssues: true
