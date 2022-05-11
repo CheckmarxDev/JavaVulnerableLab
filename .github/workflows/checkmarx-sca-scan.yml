@@ -22,8 +22,8 @@ jobs:
       with:
         cxAction: ScaScan
         project: ${{ secrets.CHECKMARX_SCA_PROJECT }}
-        cxScaAccount: ${{ secrets.CHECKMARX_SCA_USERNAME }}
-        cxScaUsername: ${{ secrets.CHECKMARX_SCA_PASSWORD }}
-        cxScaPassword: ${{ secrets.GH_TOKEN}}
+        ScaAccount: ${{ secrets.CHECKMARX_SCA_USERNAME }}
+        ScaUsername: ${{ secrets.CHECKMARX_SCA_PASSWORD }}
+        ScaPassword: ${{ secrets.GH_TOKEN}}
         cxExecutePackageDependency: true
         cxGithubIssues: true
