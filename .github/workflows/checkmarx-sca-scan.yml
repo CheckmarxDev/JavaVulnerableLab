@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CxSCA Action - Scan on Pull
+name: CxSCA Action-Scan on Pull
 
 # Controls when the workflow will run
 on:
@@ -21,9 +21,9 @@ jobs:
       uses: checkmarx-ts/checkmarx-github-action@v1.0.6
       with:
         cxAction: ScaScan
-        cxScaAccount: ${{ secrets.CX_SCA_USERNAME }}
-        cxScaUsername: ${{ secrets.CX_SCA_PASSWORD }}
-        cxScaPassword: ${{ secrets.CX_SCA_GH_TOKEN}}
+        cxScaAccount: ${{ secrets.CHECKMARX_SCA_USERNAME }}
+        cxScaUsername: ${{ secrets.CHECKMARX_SCA_PASSWORD }}
+        cxScaPassword: ${{ secrets.GH_TOKEN}}
         cxExecutePackageDependency: true
          #cxVersion: "2020.2.18"
         #cxLog: log.log
