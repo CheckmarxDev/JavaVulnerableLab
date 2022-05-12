@@ -1,29 +1,51 @@
-# This is a basic workflow to help you get started with Actions
+# This workflow is to automate Checkmarx SCA scans.  It runs on a push to the main branch.
+#
+# The following GitHub Secrets must be first defined:
+#   - CHECKMARX_SCA_USERNAME
+#   - CHECKMARX_SCA_PASSWORD
+#
+# The following variables must be inserted below:
+#   - <ProjectName>
+#   - <SCATenant>
+#   - <GitHubRepoUrl>
+#
+# For full documentation, including a list of all inputs, please refer to the README https://github.com/checkmarx-ts/checkmarx-cxflow-github-action
 
-name: CxSCA Action-Scan on Pull
-
-# Controls when the workflow will run
+name: Checkmarx SCA Scan
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  pull_request:
-    branches: [ master ]
-
+  push:
+    branches:
+      - main
+      - master
+      
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
     - name: Checkmarx CxFlow Action
-      uses: checkmarx-ts/checkmarx-cxflow-github-action@9975af7d6b957abec9ee9646effa3fb3b82c5314
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
       with:
-        cxAction: ScaScan
-        project: ${{ secrets.CHECKMARX_SCA_PROJECT }}
-        ScaAccount: ${{ secrets.CHECKMARX_SCA_USERNAME }}
-        ScaUsername: ${{ secrets.CHECKMARX_SCA_PASSWORD }}
-        ScaPassword: ${{ secrets.GH_TOKEN}}
-        cxExecutePackageDependency: true
-        cxGithubIssues: true
+        project: ${{ secrets.CHECKMARX_SCA_PROJECT }}  # <-- Insert Checkmarx CxSCA Project Name
+      # team: 
+        sca_api_url: https://api.scacheckmarx.com
+        sca_app_url: https://sca.scacheckmarx.com/
+        sca_access_control_url: https://platform.checkmarx.net
+        sca_tenant: SCA-Champions  # <-- Insert Checkmarx CxSCA Tenant
+        sca_username: ${{ secrets.CHECKMARX_SCA_USERNAME }} # To be stored in GitHub Secrets.
+        sca_password: ${{ secrets.CHECKMARX_SCA_PASSWORD }} # To be stored in GitHub Secrets.
+        break_build: false
+        scanners: sca
+        preset: high and medium
+        bug_tracker: Sarif
+        incremental: false
+        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
+
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: cx.sarif
