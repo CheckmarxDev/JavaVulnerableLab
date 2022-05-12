@@ -41,7 +41,7 @@ jobs:
         break_build: false
         scanners: sca
         preset: high and medium
-        bug_tracker: Github
+        bug_tracker: GitHub
         incremental: false
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
 
