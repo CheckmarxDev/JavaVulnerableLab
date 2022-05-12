@@ -42,6 +42,7 @@ jobs:
         scanners: sca
         preset: high and medium
         bug_tracker: GitHub
+        github_token: ${{ secrets.GH_TOKEN }} # Github PAT for account
         incremental: false
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
 
