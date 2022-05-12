@@ -28,7 +28,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Checkmarx CxFlow Action
-      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@v2 # GitHub Action version
       with:
         project: ${{ secrets.CHECKMARX_SCA_PROJECT }}  # <-- Insert Checkmarx CxSCA Project Name
       # team: 
