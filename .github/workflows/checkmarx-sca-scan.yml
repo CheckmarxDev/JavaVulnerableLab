@@ -41,11 +41,11 @@ jobs:
         break_build: false
         scanners: sca
         preset: high and medium
-        bug_tracker: Sarif
+        bug_tracker: Github
         incremental: false
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
 
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v1
-      with:
-        sarif_file: cx.sarif
+#   - name: Upload SARIF file
+#     uses: github/codeql-action/upload-sarif@v1
+#     with:
+#       sarif_file: cx.sarif
