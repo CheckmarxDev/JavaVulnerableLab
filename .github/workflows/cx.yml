@@ -28,7 +28,13 @@ jobs:
     # The type of runner that the job will run on - Ubuntu is required as Docker is leveraged for the action
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - run: python my_script.py
     - uses: actions/checkout@v2
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1
