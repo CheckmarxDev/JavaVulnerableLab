@@ -6,6 +6,7 @@
 
 package org.cysecurity.cspf.jvl.controller;
 
+import java.sql.PreparedStatement;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -48,8 +49,9 @@ public class EmailCheck extends HttpServlet {
                 if(con!=null && !con.isClosed())
                 {
                     ResultSet rs=null;
-                    Statement stmt = con.createStatement();  
-                    rs=stmt.executeQuery("select * from users where email='"+email+"'");
+                    PreparedStatement stmt = con.prepareStatement("select * from users where email=?");  
+                    stmt.setString(1, email);
+                    rs=stmt.executeQuery();
                     if (rs.next()) 
                     {  
                      json.put("available", "1"); 
