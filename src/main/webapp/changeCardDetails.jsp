@@ -21,8 +21,9 @@ if(session.getAttribute("isLoggedIn")!=null)
                 <tr><td>Expiry Date:</td><td><input type="text" name="expirydate" value=""/> </td></tr>
 		<tr><td/><td><input type="submit" name="action" value="add"/></td></tr>
                     </table>
-		</form>
-		<br/>
+		<input type="hidden" name="csrf_token" value="<%=session.getAttribute("csrf_token")%>"/>
+	</form>
+	<br/>
     <%
  Connection con=new DBConnect().connect(getServletContext().getRealPath("/WEB-INF/config.properties"));
    
@@ -39,8 +40,12 @@ if(session.getAttribute("isLoggedIn")!=null)
         String expirydate=request.getParameter("expirydate");
         if(!cardno.equals("") && !cvv.equals("") && !expirydate.equals(""))
         {
-         Statement stmt = con.createStatement();
-         stmt.executeUpdate("INSERT into cards(id,cardno, cvv,expirydate) values ('"+id+"','"+cardno+"','"+cvv+"','"+expirydate+"')");
+         PreparedStatement pstmt = con.prepareStatement("INSERT into cards(id,cardno, cvv,expirydate) values (?,?,?,?)");
+         pstmt.setString(1, id);
+         pstmt.setString(2, cardno);
+         pstmt.setString(3, cvv);
+         pstmt.setString(4, expirydate);
+         pstmt.executeUpdate();
          out.print("<b style='color:green'> * Card details added *</b>");   
         }
         else
