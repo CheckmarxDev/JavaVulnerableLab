@@ -15,8 +15,10 @@ if(request.getParameter("Login")!=null)
                     if(con!=null && !con.isClosed())
                                {
                                    ResultSet rs=null;
-                                   Statement stmt = con.createStatement();  
-                                   rs=stmt.executeQuery("select * from users where username='"+user+"' and password='"+pass+"' and privilege='admin'");
+                                   PreparedStatement pstmt = con.prepareStatement("select * from users where username=? and password=? and privilege='admin'");
+                                   pstmt.setString(1, user);
+                                   pstmt.setString(2, pass);
+                                   rs=pstmt.executeQuery();
                                    if(rs != null && rs.next()){
                                    session.setAttribute("isLoggedIn", "1");
                                    session.setAttribute("userid", rs.getString("id"));
